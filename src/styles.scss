@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --bg: #ffffff;
+  --fg: #0f172a;
+  --card: #f3f4f6;
+  --muted: #4b5563;
+  --accent: #2563eb;
+}
+
+:root[data-theme="dark"] {
+  --bg: #0b1020;
+  --fg: #e6e8ee;
+  --card: #12172a;
+  --muted: #9aa3b2;
+  --accent: #6ea8fe;
+}
+
+html, body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif;
+  margin: 0;
+}
