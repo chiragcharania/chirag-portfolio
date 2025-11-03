@@ -1,0 +1,29 @@
+<section class="section">
+  <div class="section__header">
+    <h2>Work Experience</h2>
+    <div class="filters">
+      <button class="chip" *ngFor="let name of employers"
+              [class.chip--active]="selected === name"
+              (click)="setFilter(name)">
+        {{ name }}
+      </button>
+    </div>
+  </div>
+
+  <div class="grid">
+    <article class="card" *ngFor="let x of filtered">
+      <header class="card__head">
+        <h3 class="card__title">{{ x.title }}</h3>
+        <div class="card__sub">{{ x.employer }} • {{ x.when }}</div>
+      </header>
+
+      <ul class="card__bullets">
+        <li *ngFor="let b of x.bullets">{{ b }}</li>
+      </ul>
+
+      <div class="tags">
+        <span class="tag" *ngFor="let t of x.tags">{{ t }}</span>
+      </div>
+    </article>
+  </div>
+</section>

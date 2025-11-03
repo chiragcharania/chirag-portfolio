@@ -1,0 +1,86 @@
+.section {
+    padding: 2rem 1.25rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.section__header {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+    flex-wrap: wrap;
+}
+
+.filters {
+    display: flex;
+    gap: .5rem;
+    flex-wrap: wrap;
+}
+
+.chip {
+    padding: .4rem .75rem;
+    border-radius: 999px;
+    border: 1px solid color-mix(in oklab, var(--fg) 16%, transparent);
+    background: color-mix(in oklab, var(--card) 85%, transparent);
+    cursor: pointer;
+    color: var(--fg);
+}
+
+.chip--active {
+    border-color: var(--accent);
+    background: color-mix(in oklab, var(--accent) 20%, transparent);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+}
+
+.card {
+    background: var(--card);
+    border: 1px solid color-mix(in oklab, var(--fg) 10%, transparent);
+    border-radius: 1rem;
+    padding: 1rem 1rem .75rem;
+}
+
+.card__head {
+    margin-bottom: .5rem;
+}
+
+.card__title {
+    margin: 0 0 .25rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+}
+
+.card__sub {
+    color: var(--muted);
+    font-size: .9rem;
+}
+
+.card__bullets {
+    margin: .5rem 0 .75rem;
+    padding-left: 1.1rem;
+}
+
+.card__bullets li {
+    margin: .25rem 0;
+}
+
+.tags {
+    display: flex;
+    gap: .4rem;
+    flex-wrap: wrap;
+    margin-bottom: .5rem;
+}
+
+.tag {
+    font-size: .8rem;
+    padding: .25rem .5rem;
+    border-radius: .5rem;
+    background: color-mix(in oklab, var(--accent) 15%, transparent);
+    border: 1px solid color-mix(in oklab, var(--accent) 40%, transparent);
+}

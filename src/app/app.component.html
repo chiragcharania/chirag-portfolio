@@ -1,56 +1,15 @@
 <header class="topbar">
+  <nav class="nav">
+    <a routerLink="/" class="brand">CC</a>
+    <div class="links">
+      <a routerLink="/skills" routerLinkActive="active">Skills</a>
+      <a routerLink="/experience" routerLinkActive="active">Experience</a>
+    </div>
+  </nav>
+
   <button class="theme-toggle" (click)="toggleTheme()" aria-label="Toggle theme">
-    <span class="sun">☀️</span>
-    <span class="moon">🌙</span>
+    <span>☀️/🌙</span>
   </button>
 </header>
 
-<main class="hero">
-  <div class="hero__inner">
-    <img class="hero__avatar" src="headshot.jpg" alt="Chirag Charania headshot" width="160" height="160" />
-    <div class="hero__tag">Front-End • Angular • TypeScript</div>
-    <h1 class="hero__title">Chirag Charania</h1>
-    <p class="hero__subtitle">
-      Senior UI Developer — building fast, accessible Angular apps.
-    </p>
-
-    <div class="hero__cta">
-      <a class="btn btn--primary" href="Chirag-Charania-Updated-Resume.pdf" target="_blank" rel="noopener">
-        Download CV
-      </a>
-      <a class="btn" href="mailto:chiragcharania@gmail.com">Email</a>
-      <a class="btn" href="https://www.linkedin.com/in/chirag-charania/" target="_blank" rel="noopener">
-        LinkedIn
-      </a>
-    </div>
-  </div>
-</main>
-
-<section class="section">
-  <div class="section__header">
-    <h2>Work Experience</h2>
-    <div class="filters">
-      <button class="chip" *ngFor="let name of employers" [class.chip--active]="selected === name"
-        (click)="setFilter(name)">
-        {{ name }}
-      </button>
-    </div>
-  </div>
-
-  <div class="grid">
-    <article class="card" *ngFor="let x of filtered">
-      <header class="card__head">
-        <h3 class="card__title">{{ x.title }}</h3>
-        <div class="card__sub">{{ x.employer }} • {{ x.when }}</div>
-      </header>
-
-      <ul class="card__bullets">
-        <li *ngFor="let b of x.bullets">{{ b }}</li>
-      </ul>
-
-      <div class="tags">
-        <span class="tag" *ngFor="let t of x.tags">{{ t }}</span>
-      </div>
-    </article>
-  </div>
-</section>
+<router-outlet></router-outlet>
