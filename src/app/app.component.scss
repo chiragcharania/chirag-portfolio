@@ -25,6 +25,7 @@
   background: color-mix(in oklab, var(--card) 85%, transparent);
   color: var(--fg);
   cursor: pointer;
+  transition: background 0.2s ease;
 }
 
 .theme-toggle:hover {
@@ -164,6 +165,11 @@
   background: color-mix(in oklab, var(--card) 85%, transparent);
   cursor: pointer;
   color: var(--fg);
+  transition: transform .2s ease;
+}
+
+.chip:hover {
+  transform: translateY(-1px);
 }
 
 .chip--active {
@@ -182,6 +188,13 @@
   border: 1px solid color-mix(in oklab, var(--fg) 10%, transparent);
   border-radius: 1rem;
   padding: 1rem 1rem 0.75rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 34px color-mix(in oklab, var(--fg) 14%, transparent);
+  border-color: color-mix(in oklab, var(--accent) 28%, transparent);
 }
 
 .card__head {
@@ -249,23 +262,34 @@
   color: var(--fg);
 }
 
+/* Animated underline for active/hover nav links */
 .links a {
+  position: relative;
+  isolation: isolate;
   text-decoration: none;
   color: var(--fg);
   padding: .25rem .5rem;
   border-radius: .5rem;
 }
 
-.links a.active,
-.links a:hover {
-  background: color-mix(in oklab, var(--card) 85%, transparent);
+.links a::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 -3px 0;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--duration) var(--ease);
+  border-radius: 2px;
 }
 
-.theme-toggle {
-  border: 1px solid color-mix(in oklab, var(--fg) 12%, transparent);
-  background: color-mix(in oklab, var(--card) 85%, transparent);
-  color: var(--fg);
-  border-radius: .5rem;
-  padding: .35rem .6rem;
-  cursor: pointer;
+.links a:hover::after,
+.links a.active::after {
+  transform: scaleX(1);
+}
+
+/* Optional: make the active underline slightly brighter */
+.links a.active::after {
+  background: color-mix(in oklab, var(--accent) 85%, white);
 }

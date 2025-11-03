@@ -266,3 +266,79 @@ body::before {
   margin-bottom: .5rem;
 }
 
+/* ==== Motion & Focus System ==== */
+:root {
+  --ease: cubic-bezier(.2, .7, .2, 1);
+  --duration: .18s;
+  --radius: 14px;
+  --focus: 2px solid color-mix(in oklab, var(--accent) 70%, transparent);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a,
+button,
+[role="button"] {
+  transition: transform var(--duration) var(--ease),
+    background var(--duration) var(--ease),
+    border-color var(--duration) var(--ease),
+    color var(--duration) var(--ease),
+    box-shadow var(--duration) var(--ease);
+  outline: none;
+}
+
+:focus-visible {
+  outline: var(--focus);
+  outline-offset: 2px;
+  border-radius: calc(var(--radius) - 4px);
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Smooth scroll for in-page links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Rounded consistency */
+.card,
+.btn,
+.chip,
+.tag,
+.theme-toggle {
+  border-radius: var(--radius);
+}
+
+/* Subtle link style */
+a {
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  text-decoration-color: color-mix(in oklab, var(--accent) 60%, transparent);
+}
+
+/* Button hover “lift” is already defined; add active press */
+.btn:active {
+  transform: translateY(0);
+  opacity: .98;
+}
+
+/* Elevation utilities (optional) */
+.elev-1 {
+  box-shadow: 0 2px 10px color-mix(in oklab, var(--fg) 10%, transparent);
+}
+
+.elev-2 {
+  box-shadow: 0 10px 30px color-mix(in oklab, var(--fg) 12%, transparent);
+}

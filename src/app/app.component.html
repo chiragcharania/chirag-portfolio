@@ -1,11 +1,21 @@
 <header class="topbar">
-  <nav class="nav">
-    <a routerLink="/" class="brand">CC</a>
+  <nav class="nav" role="navigation" aria-label="Primary">
+    <a routerLink="/" class="brand" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+      #homeRla="routerLinkActive" [attr.aria-current]="homeRla.isActive ? 'page' : null">
+      CC
+    </a>
     <div class="links">
-      <a routerLink="/skills" routerLinkActive="active">Skills</a>
-      <a routerLink="/experience" routerLinkActive="active">Experience</a>
+      <a routerLink="/skills" routerLinkActive="active" #skillsRla="routerLinkActive"
+        [attr.aria-current]="skillsRla.isActive ? 'page' : null">
+        Skills
+      </a>
+      <a routerLink="/experience" routerLinkActive="active" #expRla="routerLinkActive"
+        [attr.aria-current]="expRla.isActive ? 'page' : null">
+        Experience
+      </a>
     </div>
   </nav>
+
 
   <button class="theme-toggle" (click)="toggleTheme()" aria-label="Toggle theme">
     <span>☀️/🌙</span>
