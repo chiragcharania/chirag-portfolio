@@ -10,7 +10,18 @@ import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  // read initial theme from <html data-theme="...">
   theme = (document.documentElement.getAttribute('data-theme') || 'light') as 'light' | 'dark';
+
+  // Label shows the action (what will happen on click)
+  get themeLabel(): string {
+    return this.theme === 'light' ? 'Dark Mode' : 'Light Mode';
+  }
+
+  // Optional icon alongside text
+  get themeIcon(): string {
+    return this.theme === 'light' ? '🌙' : '☀️';
+  }
 
   toggleTheme() {
     const next = this.theme === 'light' ? 'dark' : 'light';
