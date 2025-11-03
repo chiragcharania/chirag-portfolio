@@ -79,3 +79,18 @@
 .btn--primary:hover {
     box-shadow: 0 6px 22px color-mix(in oklab, var(--accent) 32%, transparent);
 }
+
+/* CTA polish on Home */
+.hero__cta .btn {
+}
+
+.hero__cta .btn--ghost {
+    background: transparent;
+    border-color: color-mix(in oklab, var(--fg) 12%, transparent);
+    opacity: .9;
+}
+
+.hero__cta .btn--ghost:hover {
+    background: color-mix(in oklab, var(--card) 85%, transparent);
+    opacity: 1;
+}

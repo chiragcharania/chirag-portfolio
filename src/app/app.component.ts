@@ -10,23 +10,39 @@ import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  // read initial theme from <html data-theme="...">
-  theme = (document.documentElement.getAttribute('data-theme') || 'light') as 'light' | 'dark';
+  // --- Theme handling --------------------------------------------------------
+  theme = (document.documentElement.getAttribute('data-theme') || 'light') as
+    | 'light'
+    | 'dark';
 
-  // Label shows the action (what will happen on click)
   get themeLabel(): string {
-    return this.theme === 'light' ? 'Dark Mode' : 'Light Mode';
+    return this.theme === 'light' ? 'Dark mode' : 'Light mode';
   }
 
-  // Optional icon alongside text
   get themeIcon(): string {
     return this.theme === 'light' ? '🌙' : '☀️';
   }
 
   toggleTheme() {
+    const html = document.documentElement;
     const next = this.theme === 'light' ? 'dark' : 'light';
-    document.documentElement.setAttribute('data-theme', next);
+
+    // smooth transition effect
+    html.classList.add('theme-transition');
+    window.setTimeout(() => html.classList.remove('theme-transition'), 250);
+
+    html.setAttribute('data-theme', next);
     localStorage.setItem('theme', next);
     this.theme = next;
+  }
+
+  // --- Footer data -----------------------------------------------------------
+  now = new Date();
+  lastUpdated = this.now; // replace with fixed date if desired
+
+  // --- Helpers ---------------------------------------------------------------
+  scrollToTop(event: Event) {
+    event.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }

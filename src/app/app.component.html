@@ -2,13 +2,16 @@
   <nav class="nav" role="navigation" aria-label="Primary">
     <a routerLink="/" class="brand" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
       #homeRla="routerLinkActive" [attr.aria-current]="homeRla.isActive ? 'page' : null">CC</a>
+
     <div class="links">
-      <a routerLink="/skills" routerLinkActive="active" #skillsRla="routerLinkActive"
-        [attr.aria-current]="skillsRla.isActive ? 'page' : null">Skills</a>
-      <a routerLink="/experience" routerLinkActive="active" #expRla="routerLinkActive"
-        [attr.aria-current]="expRla.isActive ? 'page' : null">Experience</a>
+      <a routerLink="/skills" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+        #skillsRla="routerLinkActive" [attr.aria-current]="skillsRla.isActive ? 'page' : null">Skills</a>
+
+      <a routerLink="/experience" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+        #expRla="routerLinkActive" [attr.aria-current]="expRla.isActive ? 'page' : null">Experience</a>
     </div>
   </nav>
+
 
   <button class="theme-toggle" (click)="toggleTheme()" [attr.aria-label]="themeLabel" type="button">
     <span class="icon" aria-hidden="true">{{ themeIcon }}</span>
@@ -16,4 +19,24 @@
   </button>
 </header>
 
-<router-outlet></router-outlet>
+<!-- NEW: real flex child wrapper so footer sticks reliably -->
+<main class="content">
+  <router-outlet></router-outlet>
+</main>
+
+<footer class="site-footer">
+  <div class="foot-inner">
+    <div class="left">
+      <strong>Chirag Charania</strong> • © {{ now | date : "yyyy" }}
+      <span class="dot">•</span>
+      Last updated: {{ lastUpdated | date : "MMM d, y" }}
+    </div>
+    <div class="right">
+      <a href="mailto:chiragcharania@gmail.com">Email</a>
+      <span class="dot">•</span>
+      <a href="https://www.linkedin.com/in/chirag-charania/" target="_blank" rel="noopener">LinkedIn</a>
+      <span class="dot">•</span>
+      <a href="#" (click)="scrollToTop($event)">Back to top ↑</a>
+    </div>
+  </div>
+</footer>

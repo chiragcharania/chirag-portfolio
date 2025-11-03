@@ -1,242 +1,11 @@
 :host {
-  display: block;
-}
-
-/* Top bar with theme toggle */
-.topbar {
-  position: fixed;
-  inset: 0 0 auto 0;
   display: flex;
-  justify-content: flex-end;
-  padding: .75rem 1rem;
-  background: color-mix(in oklab, var(--card) 85%, transparent);
-  backdrop-filter: blur(6px);
-  z-index: 10;
-  border-bottom: 1px solid color-mix(in oklab, var(--fg) 8%, transparent);
+  flex-direction: column;
+  min-height: 100vh;
+  /* enables sticky footer layout */
 }
 
-.theme-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: .35rem;
-  padding: .45rem .65rem;
-  border-radius: .75rem;
-  border: 1px solid color-mix(in oklab, var(--fg) 12%, transparent);
-  background: color-mix(in oklab, var(--card) 85%, transparent);
-  color: var(--fg);
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-
-.theme-toggle:hover {
-  background: color-mix(in oklab, var(--card) 95%, transparent);
-}
-
-/* Hero */
-.hero {
-  min-height: 100dvh;
-  display: grid;
-  place-items: center;
-  padding: 4.5rem 2rem 2rem;
-  background: var(--bg);
-  color: var(--fg);
-}
-
-.hero__inner {
-  text-align: center;
-  max-width: 820px;
-}
-
-.hero__avatar {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: center;
-  border: 3px solid color-mix(in oklab, var(--fg) 12%, transparent);
-  box-shadow: 0 10px 30px color-mix(in oklab, var(--fg) 12%, transparent);
-  margin-bottom: 1rem;
-}
-
-.hero__tag {
-  display: inline-block;
-  padding: .375rem .75rem;
-  border-radius: 999px;
-  background: var(--card);
-  color: var(--muted);
-  font-size: .875rem;
-  margin-bottom: 1rem;
-}
-
-.hero__title {
-  font-size: clamp(2.25rem, 6vw, 4rem);
-  line-height: 1.05;
-  margin: 0 0 .5rem 0;
-  font-weight: 800;
-}
-
-.hero__subtitle {
-  font-size: clamp(1rem, 2.8vw, 1.25rem);
-  color: color-mix(in oklab, var(--fg) 75%, #9aa3b2);
-  margin: 0 0 1.5rem 0;
-}
-
-.hero__cta {
-  display: inline-flex;
-  gap: .75rem;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.btn {
-  border: 1px solid color-mix(in oklab, var(--fg) 18%, transparent);
-  color: var(--fg);
-  text-decoration: none;
-  padding: .6rem 1rem;
-  border-radius: .75rem;
-  transition: transform .15s ease, background .15s ease, border-color .15s ease;
-}
-
-.btn:hover {
-  transform: translateY(-1px);
-  border-color: color-mix(in oklab, var(--fg) 28%, transparent);
-  background: color-mix(in oklab, var(--card) 85%, transparent);
-}
-
-.btn--primary {
-  border-color: var(--accent);
-  background: color-mix(in oklab, var(--accent) 20%, transparent);
-}
-
-.btn--primary:hover {
-  background: color-mix(in oklab, var(--accent) 30%, transparent);
-}
-
-/* Skills */
-.skills {
-  display: grid;
-  gap: 1rem;
-}
-
-.skill-group {
-  background: var(--card);
-  border: 1px solid color-mix(in oklab, var(--fg) 10%, transparent);
-  border-radius: 1rem;
-  padding: 1rem;
-}
-
-.skill-title {
-  margin: 0 0 .5rem;
-  font-size: 1rem;
-  font-weight: 700;
-}
-
-/* Work Experience Section */
-.section {
-  padding: 2rem 1.25rem;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.section__header {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1.25rem;
-  flex-wrap: wrap;
-}
-
-.section h2 {
-  margin: 0;
-  font-size: clamp(1.5rem, 3.5vw, 2rem);
-}
-
-.filters {
-  display: flex;
-  gap: .5rem;
-  flex-wrap: wrap;
-}
-
-.chip {
-  padding: .4rem .75rem;
-  border-radius: 999px;
-  border: 1px solid color-mix(in oklab, var(--fg) 16%, transparent);
-  background: color-mix(in oklab, var(--card) 85%, transparent);
-  cursor: pointer;
-  color: var(--fg);
-  transition: transform .2s ease;
-}
-
-.chip:hover {
-  transform: translateY(-1px);
-}
-
-.chip--active {
-  border-color: var(--accent);
-  background: color-mix(in oklab, var(--accent) 20%, transparent);
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1rem;
-}
-
-.card {
-  background: var(--card);
-  border: 1px solid color-mix(in oklab, var(--fg) 10%, transparent);
-  border-radius: 1rem;
-  padding: 1rem 1rem 0.75rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-}
-
-.card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 34px color-mix(in oklab, var(--fg) 14%, transparent);
-  border-color: color-mix(in oklab, var(--accent) 28%, transparent);
-}
-
-.card__head {
-  margin-bottom: .5rem;
-}
-
-.card__title {
-  margin: 0 0 .25rem;
-  font-size: 1.125rem;
-  font-weight: 700;
-}
-
-.card__sub {
-  color: var(--muted);
-  font-size: .9rem;
-}
-
-.card__bullets {
-  margin: .5rem 0 .75rem;
-  padding-left: 1.1rem;
-}
-
-.card__bullets li {
-  margin: .25rem 0;
-}
-
-.tags {
-  display: flex;
-  gap: .4rem;
-  flex-wrap: wrap;
-  margin-bottom: .5rem;
-}
-
-.tag {
-  font-size: .8rem;
-  padding: .25rem .5rem;
-  border-radius: .5rem;
-  background: color-mix(in oklab, var(--accent) 15%, transparent);
-  border: 1px solid color-mix(in oklab, var(--accent) 40%, transparent);
-}
-
-/* App shell */
+/* ───────────────── Header (single sticky version) ───────────────── */
 .topbar {
   position: sticky;
   top: 0;
@@ -262,7 +31,25 @@
   color: var(--fg);
 }
 
-/* Animated underline for active/hover nav links */
+/* Theme toggle (text + icon) */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .45rem .7rem;
+  border-radius: .75rem;
+  border: 1px solid color-mix(in oklab, var(--fg) 12%, transparent);
+  background: color-mix(in oklab, var(--card) 85%, transparent);
+  color: var(--fg);
+  cursor: pointer;
+  transition: background .2s ease;
+}
+
+.theme-toggle:hover {
+  background: color-mix(in oklab, var(--card) 95%, transparent);
+}
+
+/* ───────────────── Nav links + underline animation ───────────────── */
 .links a {
   position: relative;
   isolation: isolate;
@@ -284,28 +71,56 @@
   border-radius: 2px;
 }
 
+/* Hover shows underline; active route keeps it visible */
 .links a:hover::after,
 .links a.active::after {
   transform: scaleX(1);
 }
 
-/* Optional: make the active underline slightly brighter */
+/* Slightly brighter underline for the active page */
 .links a.active::after {
   background: color-mix(in oklab, var(--accent) 85%, white);
 }
 
-.theme-toggle {
-  display: inline-flex;
+/* ───────────────── Main content wrapper (flex child that grows) ───────────────── */
+.content {
+  flex: 1 0 auto;
+  display: block;
+}
+
+/* ───────────────── Footer ───────────────── */
+.site-footer {
+  margin-top: 2rem;
+  padding: 1rem 1.25rem;
+  border-top: 1px solid color-mix(in oklab, var(--fg) 8%, transparent);
+  background: color-mix(in oklab, var(--card) 90%, transparent);
+  flex-shrink: 0;
+}
+
+.foot-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  gap: .75rem;
   align-items: center;
-  gap: .5rem;
-  padding: .45rem .7rem;
-  font: inherit;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  color: var(--muted);
+  font-size: .95rem;
 }
 
-.theme-toggle .icon {
-  line-height: 1;
+.site-footer a {
+  color: var(--fg);
+  text-decoration: none;
+  padding: .15rem .25rem;
+  border-radius: .35rem;
 }
 
-.theme-toggle .label {
-  font-weight: 600;
+.site-footer a:hover {
+  background: color-mix(in oklab, var(--card) 85%, transparent);
+}
+
+.dot {
+  opacity: .6;
+  margin: 0 .4rem;
 }
