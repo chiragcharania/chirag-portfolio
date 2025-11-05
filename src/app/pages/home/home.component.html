@@ -1,17 +1,58 @@
-<main class="hero">
-    <div class="hero__inner">
-        <img class="hero__avatar" src="assets/headshot.jpg" alt="Chirag Charania headshot" width="160" height="160" />
-        <div class="hero__tag">Front-End • Angular • TypeScript</div>
-        <h1 class="hero__title">Chirag Charania</h1>
-        <p class="hero__subtitle">Senior UI Developer — building fast, accessible Angular apps.</p>
+<main class="home">
+    <section class="hero-card fade-in">
+        <div class="hero-left">
+            <div class="avatar-wrap">
+                <span class="avatar-halo" aria-hidden="true"></span>
+                <img class="hero__avatar" src="assets/headshot.jpg" alt="Chirag Charania headshot" width="160"
+                    height="160" />
+            </div>
 
-        <div class="hero__cta">
-            <a class="btn" routerLink="/skills">View Skills</a>
-            <a class="btn" routerLink="/experience">Experience</a>
-            <a class="btn btn--ghost" href="assets/Chirag-Charania-Updated-Resume.pdf" target="_blank" rel="noopener">
-                Download CV
-            </a>
+            <div class="hero-tags">
+                <span class="tag">Front-End</span>
+                <span class="tag">Angular</span>
+                <span class="tag">TypeScript</span>
+            </div>
+
+            <h1 class="hero-title">Chirag Charania</h1>
+            <p class="hero-kicker">Senior UI Developer</p>
+
+            <p class="hero-summary">
+                I turn complex ideas into fast, accessible web apps. I specialize in Angular, TypeScript, and clean,
+                reusable UI systems.
+            </p>
+
+            <div class="hero-cta">
+                <a class="btn" routerLink="/skills">View Skills</a>
+                <a class="btn" routerLink="/experience">Experience</a>
+                <a class="btn btn--ghost" href="assets/Chirag-Charania-Updated-Resume.pdf" target="_blank"
+                    rel="noopener">Download CV</a>
+            </div>
+
+            <ul class="hero-stats" aria-label="Quick facts">
+                <li><span aria-hidden="true">💼</span> 7+ yrs experience</li>
+                <li><span aria-hidden="true">⚙️</span> Angular • TS • SCSS</li>
+                <li><span aria-hidden="true">📍</span> USA</li>
+            </ul>
         </div>
 
-    </div>
+        <div class="hero-right">
+            <!-- Accent block mimicking the cozy card imagery from the reference -->
+            <div class="accent-card">
+                <div class="accent-ring"></div>
+                <div class="accent-content">
+                    <h3>Focused on</h3>
+                    <ul>
+                        <li>Reusable Angular components</li>
+                        <li>Performance & accessibility</li>
+                        <li>Design systems & consistency</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Optional scroll hint -->
+    <button class="scroll-hint" (click)="scrollDown()" aria-label="Scroll down">
+        <span>Scroll</span> ↓
+    </button>
 </main>
