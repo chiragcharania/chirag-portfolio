@@ -1,14 +1,20 @@
-<section class="section">
-  <div class="section__header">
-    <h2>Skills</h2>
-  </div>
+<section class="skills-page fade-in">
+  <div class="cozy-card">
+    <header class="header">
+      <h1>Skills</h1>
+      <p class="muted">A quick overview of tools and technologies I use day-to-day.</p>
+    </header>
 
-  <div class="skills">
-    <div class="skill-group" *ngFor="let g of skills">
-      <h3 class="skill-title">{{ g.title }}</h3>
-      <div class="tags">
-        <span class="tag" *ngFor="let s of g.items">{{ s }}</span>
-      </div>
+    <!-- Groups -->
+    <div class="groups">
+      <!-- Example structure assumes you have a 'groups' array in the component -->
+      <!-- groups = [{ title: 'Frameworks & Libraries', items: ['Angular','TypeScript','RxJS','Node.js','HTML5','SCSS'] }, ...] -->
+      <article class="group" *ngFor="let g of groups">
+        <h2 class="group-title">{{ g.title }}</h2>
+        <div class="chips">
+          <span class="chip" *ngFor="let item of g.items">{{ item }}</span>
+        </div>
+      </article>
     </div>
   </div>
 </section>

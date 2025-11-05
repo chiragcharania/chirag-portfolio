@@ -1,52 +1,92 @@
 <main class="home">
     <section class="hero-card fade-in">
+        <!-- LEFT: avatar, name, summary, stats, Download CV button -->
         <div class="hero-left">
+            <!-- Avatar -->
             <div class="avatar-wrap">
                 <span class="avatar-halo" aria-hidden="true"></span>
                 <img class="hero__avatar" src="assets/headshot.jpg" alt="Chirag Charania headshot" width="160"
                     height="160" />
             </div>
 
+            <!-- Tags below avatar -->
             <div class="hero-tags">
                 <span class="tag">Front-End</span>
                 <span class="tag">Angular</span>
                 <span class="tag">TypeScript</span>
             </div>
 
+            <!-- Name + role -->
             <h1 class="hero-title">Chirag Charania</h1>
             <p class="hero-kicker">Senior UI Developer</p>
 
+            <!-- Summary -->
             <p class="hero-summary">
                 I turn complex ideas into fast, accessible web apps. I specialize in Angular, TypeScript, and clean,
                 reusable UI systems.
             </p>
 
-            <div class="hero-cta">
-                <a class="btn" routerLink="/skills">View Skills</a>
-                <a class="btn" routerLink="/experience">Experience</a>
-                <a class="btn btn--ghost" href="assets/Chirag-Charania-Updated-Resume.pdf" target="_blank"
-                    rel="noopener">Download CV</a>
-            </div>
-
+            <!-- Quick facts -->
             <ul class="hero-stats" aria-label="Quick facts">
                 <li><span aria-hidden="true">💼</span> 7+ yrs experience</li>
                 <li><span aria-hidden="true">⚙️</span> Angular • TS • SCSS</li>
                 <li><span aria-hidden="true">📍</span> USA</li>
             </ul>
+
+            <!-- Keep Download CV as a button -->
+            <div class="hero-cta">
+                <a class="btn btn--ghost" href="assets/Chirag-Charania-Updated-Resume.pdf" target="_blank"
+                    rel="noopener">
+                    Download CV
+                </a>
+            </div>
         </div>
 
+        <!-- RIGHT: cozy stacked cards -->
         <div class="hero-right">
-            <!-- Accent block mimicking the cozy card imagery from the reference -->
-            <div class="accent-card">
-                <div class="accent-ring"></div>
-                <div class="accent-content">
-                    <h3>Focused on</h3>
-                    <ul>
-                        <li>Reusable Angular components</li>
-                        <li>Performance & accessibility</li>
-                        <li>Design systems & consistency</li>
-                    </ul>
+            <div class="cards">
+                <!-- 1) Focused on (static) -->
+                <div class="accent-card">
+                    <div class="accent-ring"></div>
+                    <div class="accent-content">
+                        <h3>Focused on</h3>
+                        <ul>
+                            <li>Reusable Angular components</li>
+                            <li>Performance & accessibility</li>
+                            <li>Design systems & consistency</li>
+                        </ul>
+                    </div>
                 </div>
+
+                <!-- 2) Skills (clickable) — now with chips/pills -->
+                <a class="accent-card link-card" routerLink="/skills" aria-label="Go to Skills">
+                    <div class="accent-content">
+                        <h3>Skills</h3>
+                        <div class="chips">
+                            <span class="chip">Angular</span>
+                            <span class="chip">TypeScript</span>
+                            <span class="chip">RxJS</span>
+                            <span class="chip">SCSS</span>
+                            <span class="chip">Node.js</span>
+                            <span class="chip">REST APIs</span>
+                            <span class="chip">Git</span>
+                        </div>
+                        <span class="link-arrow" aria-hidden="true">→</span>
+                    </div>
+                </a>
+
+                <!-- 3) Experience (clickable) -->
+                <a class="accent-card link-card" routerLink="/experience" aria-label="Go to Experience">
+                    <div class="accent-content">
+                        <h3>Experience</h3>
+                        <ul class="mini-list">
+                            <li>Verizon — Senior UI Developer</li>
+                            <li>Citi Retail Services — Angular Developer</li>
+                            <li>NYS Office of General Services — Software Dev</li>
+                        </ul>
+                        <span class="link-arrow" aria-hidden="true">→</span>
+                    </div>
+                </a>
             </div>
         </div>
     </section>

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SKILLS, SkillGroup } from '../../skills.data';
 
 @Component({
   selector: 'app-skills',
@@ -10,5 +9,22 @@ import { SKILLS, SkillGroup } from '../../skills.data';
   styleUrls: ['./skills.component.scss']
 })
 export class SkillsComponent {
-  skills: SkillGroup[] = SKILLS;
+  groups = [
+    {
+      title: 'Frameworks & Libraries',
+      items: ['Angular', 'TypeScript', 'RxJS', 'Node.js', 'HTML5', 'SCSS']
+    },
+    {
+      title: 'Tools & Platforms',
+      items: ['Git', 'GitHub Actions', 'Jenkins', 'OpenShift', 'REST APIs']
+    },
+    {
+      title: 'Testing & Quality',
+      items: ['Jasmine', 'Karma', 'ESLint', 'Prettier']
+    },
+    {
+      title: 'Design & UX',
+      items: ['Responsive UI', 'Accessibility (ARIA)', 'Cross-browser']
+    }
+  ];
 }

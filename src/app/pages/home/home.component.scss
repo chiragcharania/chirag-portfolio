@@ -23,13 +23,14 @@
     }
 }
 
-/* Left panel */
+/* LEFT panel */
 .hero-left {
     display: grid;
     align-content: start;
     gap: .9rem;
 }
 
+/* Avatar + halo */
 .avatar-wrap {
     position: relative;
     display: inline-grid;
@@ -43,10 +44,7 @@
     inset: 0;
     border-radius: 50%;
     filter: blur(12px);
-    background: conic-gradient(from 0deg,
-            color-mix(in oklab, var(--accent) 65%, transparent),
-            transparent 55%,
-            color-mix(in oklab, var(--accent) 65%, transparent));
+    background: conic-gradient(from 0deg, color-mix(in oklab, var(--accent) 65%, transparent), transparent 55%, color-mix(in oklab, var(--accent) 65%, transparent));
     animation: spin 9s linear infinite;
     opacity: .55;
 }
@@ -68,6 +66,7 @@
     box-shadow: var(--elev);
 }
 
+/* Tags under avatar */
 .hero-tags {
     display: flex;
     gap: .5rem;
@@ -83,6 +82,7 @@
     font-size: .85rem;
 }
 
+/* Name, role, summary */
 .hero-title {
     font-size: clamp(2.25rem, 6vw, 3.5rem);
     margin: .25rem 0 0;
@@ -116,24 +116,7 @@
     margin: 0;
 }
 
-.hero-cta {
-    display: flex;
-    gap: .6rem;
-    flex-wrap: wrap;
-    margin-top: .25rem;
-}
-
-.btn--ghost {
-    background: transparent;
-    border-color: color-mix(in oklab, var(--fg) 12%, transparent);
-    opacity: .9;
-}
-
-.btn--ghost:hover {
-    background: color-mix(in oklab, var(--card) 85%, transparent);
-    opacity: 1;
-}
-
+/* Quick facts */
 .hero-stats {
     list-style: none;
     padding: 0;
@@ -149,22 +132,48 @@
     margin-right: .35rem;
 }
 
-/* Right panel: accent “info” card (visual echo of Dribbble sample) */
+/* Button block (Download CV) */
+.hero-cta {
+    display: flex;
+    gap: .6rem;
+    flex-wrap: wrap;
+    margin-top: .35rem;
+}
+
+.btn--ghost {
+    background: transparent;
+    border-color: color-mix(in oklab, var(--fg) 12%, transparent);
+    opacity: .9;
+}
+
+.btn--ghost:hover {
+    background: color-mix(in oklab, var(--card) 85%, transparent);
+    opacity: 1;
+}
+
+/* RIGHT: stacked cards */
 .hero-right {
     display: grid;
     align-content: start;
 }
 
+.cards {
+    display: grid;
+    gap: clamp(.75rem, 2vw, 1rem);
+    grid-auto-rows: 1fr;
+}
+
+/* Accent card base */
 .accent-card {
     position: relative;
     border: 1px solid var(--border);
     background: linear-gradient(180deg,
-            color-mix(in oklab, var(--card) 95%, transparent),
+            color-mix(in oklab, var(--card) 96%, transparent),
             color-mix(in oklab, var(--accent) 10%, transparent));
     box-shadow: var(--elev);
     border-radius: 20px;
     padding: clamp(1rem, 3vw, 1.25rem);
-    min-height: 260px;
+    min-height: 180px;
     overflow: hidden;
 }
 
@@ -195,6 +204,63 @@
     margin: 0;
     padding-left: 1.1rem;
     line-height: 1.6;
+}
+
+.muted {
+    color: var(--muted);
+}
+
+/* Clickable card variant */
+.link-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: transform .18s var(--ease), box-shadow .18s var(--ease), border-color .18s var(--ease);
+    cursor: pointer;
+}
+
+.link-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 34px color-mix(in oklab, var(--fg) 14%, transparent);
+    border-color: color-mix(in oklab, var(--accent) 28%, transparent);
+}
+
+.link-card .link-arrow {
+    position: absolute;
+    right: 14px;
+    bottom: 12px;
+    font-size: 20px;
+    opacity: .75;
+    transition: transform .18s var(--ease), opacity .18s var(--ease);
+}
+
+.link-card:hover .link-arrow {
+    transform: translateX(3px);
+    opacity: 1;
+}
+
+/* Chips inside the Skills card on Home */
+.chips {
+    display: flex;
+    gap: .5rem;
+    flex-wrap: wrap;
+}
+
+.chip {
+    padding: .35rem .7rem;
+    border-radius: 999px;
+    border: 1px solid color-mix(in oklab, var(--accent) 40%, transparent);
+    background: color-mix(in oklab, var(--accent) 12%, transparent);
+    color: var(--fg);
+    font-size: .9rem;
+    font-weight: 500;
+    transition: transform .15s var(--ease), background .15s var(--ease), border-color .15s var(--ease);
+}
+
+.link-card .chip:hover {
+    transform: translateY(-1px);
+    background: color-mix(in oklab, var(--accent) 22%, transparent);
+    border-color: color-mix(in oklab, var(--accent) 55%, transparent);
 }
 
 /* Scroll hint */
