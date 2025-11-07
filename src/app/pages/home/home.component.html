@@ -1,6 +1,6 @@
 <main class="home">
     <section class="hero-card fade-in">
-        <!-- LEFT: avatar, name, summary, stats, Download CV button -->
+        <!-- LEFT -->
         <div class="hero-left">
             <!-- Avatar -->
             <div class="avatar-wrap">
@@ -33,8 +33,8 @@
                 <li><span aria-hidden="true">📍</span> USA</li>
             </ul>
 
-            <!-- Keep Download CV as a button -->
-            <div class="hero-cta">
+            <!-- Centered Download CV button -->
+            <div class="hero-cta hero-cta--center">
                 <a class="btn btn--ghost" href="assets/Chirag-Charania-Updated-Resume.pdf" target="_blank"
                     rel="noopener">
                     Download CV
@@ -42,56 +42,56 @@
             </div>
         </div>
 
-        <!-- RIGHT: cozy stacked cards -->
+        <!-- RIGHT -->
         <div class="hero-right">
             <div class="cards">
-                <!-- 1) Focused on (static) -->
-                <div class="accent-card">
-                    <div class="accent-ring"></div>
-                    <div class="accent-content">
-                        <h3>Focused on</h3>
-                        <ul>
-                            <li>Reusable Angular components</li>
-                            <li>Performance & accessibility</li>
-                            <li>Design systems & consistency</li>
-                        </ul>
-                    </div>
-                </div>
 
-                <!-- 2) Skills (clickable) — now with chips/pills -->
-                <a class="accent-card link-card" routerLink="/skills" aria-label="Go to Skills">
+                <!-- SKILLS — compact version -->
+                <a class="accent-card link-card compact" routerLink="/skills" aria-label="Go to Skills">
                     <div class="accent-content">
                         <h3>Skills</h3>
-                        <div class="chips">
+                        <div class="chips small">
                             <span class="chip">Angular</span>
                             <span class="chip">TypeScript</span>
                             <span class="chip">RxJS</span>
                             <span class="chip">SCSS</span>
                             <span class="chip">Node.js</span>
                             <span class="chip">REST APIs</span>
-                            <span class="chip">Git</span>
                         </div>
                         <span class="link-arrow" aria-hidden="true">→</span>
                     </div>
                 </a>
 
-                <!-- 3) Experience (clickable) -->
+                <!-- EXPERIENCE — improved hierarchy -->
                 <a class="accent-card link-card" routerLink="/experience" aria-label="Go to Experience">
                     <div class="accent-content">
                         <h3>Experience</h3>
-                        <ul class="mini-list">
-                            <li>Verizon — Senior UI Developer</li>
-                            <li>Citi Retail Services — Angular Developer</li>
-                            <li>NYS Office of General Services — Software Dev</li>
+                        <ul class="xp-list">
+                            <li>
+                                <div class="xp-company">Verizon</div>
+                                <div class="xp-role">Senior UI Developer</div>
+                                <div class="xp-sub">2025–Present</div>
+                            </li>
+                            <li>
+                                <div class="xp-company">Citi Retail Services</div>
+                                <div class="xp-role">Angular Developer</div>
+                                <div class="xp-sub">2024–2025</div>
+                            </li>
+                            <li>
+                                <div class="xp-company">NYS Office of General Services</div>
+                                <div class="xp-role">Software Developer</div>
+                                <div class="xp-sub">2022–2024</div>
+                            </li>
                         </ul>
                         <span class="link-arrow" aria-hidden="true">→</span>
                     </div>
                 </a>
+
             </div>
         </div>
     </section>
 
-    <!-- Optional scroll hint -->
+    <!-- Scroll hint -->
     <button class="scroll-hint" (click)="scrollDown()" aria-label="Scroll down">
         <span>Scroll</span> ↓
     </button>
