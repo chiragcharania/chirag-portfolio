@@ -2,39 +2,33 @@
     <section class="hero-card fade-in">
         <!-- LEFT -->
         <div class="hero-left">
-            <!-- Avatar -->
             <div class="avatar-wrap">
                 <span class="avatar-halo" aria-hidden="true"></span>
                 <img class="hero__avatar" src="assets/headshot.jpg" alt="Chirag Charania headshot" width="160"
                     height="160" />
             </div>
 
-            <!-- Tags below avatar -->
             <div class="hero-tags">
                 <span class="tag">Front-End</span>
                 <span class="tag">Angular</span>
                 <span class="tag">TypeScript</span>
             </div>
 
-            <!-- Name + role -->
             <h1 class="hero-title">Chirag Charania</h1>
             <p class="hero-kicker">Senior UI Developer</p>
 
-            <!-- Summary -->
             <p class="hero-summary">
                 I turn complex ideas into fast, accessible web apps. I specialize in Angular, TypeScript, and clean,
                 reusable UI systems.
             </p>
 
-            <!-- Quick facts -->
             <ul class="hero-stats" aria-label="Quick facts">
                 <li><span aria-hidden="true">💼</span> 7+ yrs experience</li>
                 <li><span aria-hidden="true">⚙️</span> Angular • TS • SCSS</li>
                 <li><span aria-hidden="true">📍</span> USA</li>
             </ul>
 
-            <!-- Centered Download CV button -->
-            <div class="hero-cta hero-cta--center">
+            <div class="hero-cta">
                 <a class="btn btn--ghost" href="assets/Chirag-Charania-Updated-Resume.pdf" target="_blank"
                     rel="noopener">
                     Download CV
@@ -46,23 +40,28 @@
         <div class="hero-right">
             <div class="cards">
 
-                <!-- SKILLS — compact version -->
-                <a class="accent-card link-card compact" routerLink="/skills" aria-label="Go to Skills">
+                <!-- SKILLS: card is a DIV with routerLink-like behavior; chips are buttons -->
+                <div class="accent-card compact skills-card link-card" role="link" tabindex="0"
+                    (click)="goToSkillsCard()" (keydown)="onCardKeydown($event)" aria-label="Go to Skills page">
                     <div class="accent-content">
                         <h3>Skills</h3>
                         <div class="chips small">
-                            <span class="chip">Angular</span>
-                            <span class="chip">TypeScript</span>
-                            <span class="chip">RxJS</span>
-                            <span class="chip">SCSS</span>
-                            <span class="chip">Node.js</span>
-                            <span class="chip">REST APIs</span>
-                        </div>
-                        <span class="link-arrow" aria-hidden="true">→</span>
-                    </div>
-                </a>
+                            <button type="button" class="chip link-chip chip-btn"
+                                (click)="openExternal('https://angular.dev/', $event)">Angular</button>
 
-                <!-- EXPERIENCE — improved hierarchy -->
+                            <button type="button" class="chip link-chip chip-btn"
+                                (click)="openExternal('https://www.typescriptlang.org/', $event)">TypeScript</button>
+
+                            <button type="button" class="chip link-chip chip-btn"
+                                (click)="openExternal('https://sass-lang.com/', $event)">SCSS</button>
+
+                            <button type="button" class="chip link-chip chip-btn"
+                                (click)="openExternal('https://nodejs.org/', $event)">Node.js</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EXPERIENCE -->
                 <a class="accent-card link-card" routerLink="/experience" aria-label="Go to Experience">
                     <div class="accent-content">
                         <h3>Experience</h3>
@@ -91,7 +90,6 @@
         </div>
     </section>
 
-    <!-- Scroll hint -->
     <button class="scroll-hint" (click)="scrollDown()" aria-label="Scroll down">
         <span>Scroll</span> ↓
     </button>

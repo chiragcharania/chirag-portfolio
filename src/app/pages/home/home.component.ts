@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -10,13 +10,29 @@ import { RouterLink } from '@angular/router';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+  private router = inject(Router);
 
-  // Smoothly scrolls down one viewport height
+  goToSkillsCard(): void {
+    this.router.navigate(['/skills']);
+  }
+
+  onCardKeydown(e: KeyboardEvent): void {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      this.goToSkillsCard();
+    }
+  }
+
+  openExternal(url: string, e?: MouseEvent): void {
+    if (e) e.stopPropagation();
+    window.open(url, '_blank', 'noopener');
+  }
+
   scrollDown(): void {
     window.scrollTo({
-      top: window.innerHeight - 120,
+      top: window.innerHeight,
       behavior: 'smooth'
     });
   }
-
 }
+
