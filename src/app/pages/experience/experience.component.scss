@@ -1,5 +1,12 @@
+:host {
+    display: block;
+    background: var(--bg);
+    color: var(--fg);
+}
+
+/* Page container */
 .section {
-    padding: 2rem 1.25rem;
+    padding: 2rem 1.25rem 3rem;
     max-width: 1100px;
     margin: 0 auto;
 }
@@ -13,6 +20,14 @@
     flex-wrap: wrap;
 }
 
+.section h2 {
+    margin: 0;
+    font-size: clamp(1.6rem, 3.5vw, 2rem);
+    font-weight: 800;
+    letter-spacing: .2px;
+}
+
+/* Filters (chips) */
 .filters {
     display: flex;
     gap: .5rem;
@@ -20,12 +35,14 @@
 }
 
 .chip {
-    padding: .4rem .75rem;
+    padding: .45rem .8rem;
     border-radius: 999px;
     border: 1px solid color-mix(in oklab, var(--fg) 16%, transparent);
     background: color-mix(in oklab, var(--card) 85%, transparent);
-    cursor: pointer;
     color: var(--fg);
+    cursor: pointer;
+    transition: background .18s ease, border-color .18s ease, color .18s ease,
+        transform .12s ease, box-shadow .18s ease;
 }
 
 .chip--active {
@@ -33,6 +50,24 @@
     background: color-mix(in oklab, var(--accent) 20%, transparent);
 }
 
+/* Hover consistent with rest of site */
+:root[data-theme="dark"] .chip:hover {
+    background: color-mix(in oklab, var(--accent) 28%, transparent);
+    border-color: color-mix(in oklab, var(--accent) 60%, transparent);
+    color: #fff;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px color-mix(in oklab, var(--accent) 20%, transparent);
+}
+
+:root[data-theme="light"] .chip:hover {
+    background: color-mix(in oklab, var(--accent) 18%, #ffffff);
+    border-color: color-mix(in oklab, var(--accent) 50%, transparent);
+    color: var(--fg);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px color-mix(in oklab, var(--accent) 18%, transparent);
+}
+
+/* Grid & cards */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -41,9 +76,17 @@
 
 .card {
     background: var(--card);
-    border: 1px solid color-mix(in oklab, var(--fg) 10%, transparent);
+    border: 1px solid var(--border);
     border-radius: 1rem;
-    padding: 1rem 1rem .75rem;
+    padding: 1rem 1rem .9rem;
+    box-shadow: var(--elev);
+    transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px color-mix(in oklab, var(--accent) 16%, transparent);
+    border-color: color-mix(in oklab, var(--accent) 32%, transparent);
 }
 
 .card__head {
@@ -52,57 +95,69 @@
 
 .card__title {
     margin: 0 0 .25rem;
-    font-size: 1.125rem;
-    font-weight: 700;
+    font-size: 1.15rem;
+    font-weight: 800;
 }
 
 .card__sub {
+    margin: 0;
     color: var(--muted);
-    font-size: .9rem;
+    font-size: .92rem;
+}
+
+.company {
+    font-weight: 800;
+    color: color-mix(in oklab, var(--accent) 80%, var(--fg));
+}
+
+.dates {
+    opacity: .9;
 }
 
 .card__bullets {
-    margin: .5rem 0 .75rem;
-    padding-left: 1.1rem;
+    margin: .6rem 0 .8rem;
+    padding-left: 1.15rem;
 }
 
 .card__bullets li {
-    margin: .25rem 0;
+    margin: .28rem 0;
 }
 
+/* Tags */
 .tags {
     display: flex;
     gap: .4rem;
     flex-wrap: wrap;
-    margin-bottom: .5rem;
 }
 
 .tag {
     font-size: .8rem;
     padding: .25rem .5rem;
     border-radius: .5rem;
-    background: color-mix(in oklab, var(--accent) 15%, transparent);
+    background: color-mix(in oklab, var(--accent) 14%, transparent);
     border: 1px solid color-mix(in oklab, var(--accent) 40%, transparent);
 }
 
-.card {
-    transition: transform var(--duration) var(--ease), box-shadow var(--duration) var(--ease), border-color var(--duration) var(--ease);
+/* Responsive */
+@media (max-width: 720px) {
+    .section__header {
+        align-items: flex-start;
+    }
 }
 
-.card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 34px color-mix(in oklab, var(--fg) 14%, transparent);
-    border-color: color-mix(in oklab, var(--accent) 28%, transparent);
+/* Fade-in animation to match Home/Skills */
+.fade-in {
+    animation: heroFade .45s ease-out both;
 }
 
-.chip {
-    transition: background var(--duration) var(--ease), border-color var(--duration) var(--ease), transform var(--duration) var(--ease);
-}
+@keyframes heroFade {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
 
-.chip:hover {
-    transform: translateY(-1px);
-}
-
-.chip:focus-visible {
-    outline: var(--focus);
+    to {
+        opacity: 1;
+        transform: none;
+    }
 }
