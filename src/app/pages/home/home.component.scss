@@ -20,7 +20,13 @@
     padding: 2rem;
     box-shadow: 0 0 25px color-mix(in oklab, var(--fg) 6%, transparent);
     backdrop-filter: blur(8px);
-    transition: all 0.3s ease-in-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.hero-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px color-mix(in oklab, var(--accent) 18%, transparent);
+    border-color: color-mix(in oklab, var(--accent) 30%, transparent);
 }
 
 .hero-left {
@@ -45,6 +51,7 @@
             color-mix(in oklab, var(--accent) 25%, transparent),
             transparent 70%);
     z-index: 0;
+    transition: opacity .25s ease, transform .25s ease;
 }
 
 .hero__avatar {
@@ -56,6 +63,17 @@
     position: relative;
     z-index: 1;
     box-shadow: 0 10px 30px color-mix(in oklab, var(--fg) 10%, transparent);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.avatar-wrap:hover .hero__avatar {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 16px 36px color-mix(in oklab, var(--accent) 22%, transparent);
+}
+
+.avatar-wrap:hover .avatar-halo {
+    opacity: 1;
+    transform: scale(1.04);
 }
 
 .hero-tags {
@@ -86,7 +104,7 @@
     font-weight: 600;
     font-size: 1rem;
     color: color-mix(in oklab, var(--fg) 80%, #9aa3b2);
-    margin-bottom: 1rem;
+    margin-bottom: .65rem;
 }
 
 .hero-summary {
@@ -94,7 +112,19 @@
     font-size: 1rem;
     color: color-mix(in oklab, var(--fg) 85%, #9aa3b2);
     line-height: 1.6;
-    margin-bottom: 1.5rem;
+    margin-bottom: .75rem;
+}
+
+/* NEW meta line */
+.hero-meta {
+    font-size: .9rem;
+    color: color-mix(in oklab, var(--fg) 80%, #9aa3b2);
+    margin: 0 0 1.25rem;
+}
+
+.hero-meta__emph {
+    font-weight: 600;
+    color: color-mix(in oklab, var(--accent) 80%, var(--fg));
 }
 
 .hero-stats {
@@ -118,7 +148,7 @@
     display: inline-block;
     text-decoration: none;
     padding: .55rem 1.25rem;
-    border-radius: .75rem;
+    border-radius: 999px;
     border: 1px solid color-mix(in oklab, var(--fg) 15%, transparent);
     background: transparent;
     color: var(--fg);
@@ -214,17 +244,16 @@
     will-change: transform;
 }
 
-/* Remove underlines from chip links */
-.skills-card .link-chip,
-.skills-card .link-chip:link,
-.skills-card .link-chip:visited,
-.skills-card .link-chip:hover,
-.skills-card .link-chip:active {
-    text-decoration: none;
+/* Make chip buttons look like links */
+.chip-btn {
+    appearance: none;
+    border: none;
+    background: none;
+    padding: 0;
 }
 
-/* Card-level hover remains as-is (above). Now add chip-only hover inversion. */
-:root[data-theme="dark"] .skills-card a.chip.link-chip.chip-btn:hover {
+/* Dark/light hover inversion JUST for home skills chips */
+:root[data-theme="dark"] .skills-card .chip-btn:hover {
     background: #f2f2f2;
     color: #111;
     border-color: #f2f2f2;
@@ -232,7 +261,7 @@
     box-shadow: 0 6px 14px color-mix(in oklab, var(--fg) 18%, transparent);
 }
 
-:root[data-theme="light"] .skills-card a.chip.link-chip.chip-btn:hover {
+:root[data-theme="light"] .skills-card .chip-btn:hover {
     background: #1c1c1c;
     color: #fff;
     border-color: #1c1c1c;
@@ -240,16 +269,7 @@
     box-shadow: 0 6px 14px color-mix(in oklab, var(--fg) 18%, transparent);
 }
 
-.skills-card a.chip.link-chip.chip-btn:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-    transform: translateY(-1px);
-}
-
-.skills-card a.chip.link-chip.chip-btn:active {
-    transform: translateY(0);
-}
-
+/* Experience card bits */
 .xp-list {
     list-style: none;
     margin: 0;
@@ -289,6 +309,7 @@
     transform: translateX(3px);
 }
 
+/* Scroll hint with gentle bounce */
 .scroll-hint {
     margin-top: 2rem;
     border: none;
@@ -297,12 +318,14 @@
     font-size: .9rem;
     cursor: pointer;
     transition: color .2s ease;
+    animation: scrollBounce 1.6s ease-in-out infinite;
 }
 
 .scroll-hint:hover {
     color: var(--accent);
 }
 
+/* Responsive */
 @media (max-width: 860px) {
     .hero-card {
         grid-template-columns: 1fr;
@@ -320,6 +343,7 @@
     }
 }
 
+/* Fade-in same as other pages */
 .fade-in {
     animation: heroFade .45s ease-out both;
 }
@@ -333,5 +357,17 @@
     to {
         opacity: 1;
         transform: none;
+    }
+}
+
+@keyframes scrollBounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(3px);
     }
 }

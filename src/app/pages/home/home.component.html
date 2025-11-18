@@ -22,13 +22,19 @@
                 reusable UI systems.
             </p>
 
+            <!-- NEW: concise meta line -->
+            <p class="hero-meta">
+                Currently at <span class="hero-meta__emph">Verizon</span> · Focused on <span
+                    class="hero-meta__emph">Angular UI</span> · Based in <span class="hero-meta__emph">USA</span>
+            </p>
+
             <ul class="hero-stats" aria-label="Quick facts">
                 <li><span aria-hidden="true">💼</span> 7+ yrs experience</li>
                 <li><span aria-hidden="true">⚙️</span> Angular • TS • SCSS</li>
                 <li><span aria-hidden="true">📍</span> USA</li>
             </ul>
 
-            <div class="hero-cta">
+            <div class="hero-cta hero-cta--center">
                 <a class="btn btn--ghost" href="assets/Chirag-Charania-Updated-Resume.pdf" target="_blank"
                     rel="noopener">
                     Download CV
@@ -39,29 +45,36 @@
         <!-- RIGHT -->
         <div class="hero-right">
             <div class="cards">
-
-                <!-- SKILLS: card is a DIV with routerLink-like behavior; chips are buttons -->
+                <!-- SKILLS CARD -->
                 <div class="accent-card compact skills-card link-card" role="link" tabindex="0"
                     (click)="goToSkillsCard()" (keydown)="onCardKeydown($event)" aria-label="Go to Skills page">
                     <div class="accent-content">
                         <h3>Skills</h3>
                         <div class="chips small">
                             <button type="button" class="chip link-chip chip-btn"
-                                (click)="openExternal('https://angular.dev/', $event)">Angular</button>
+                                (click)="openExternal('https://angular.dev/', $event)">
+                                Angular
+                            </button>
 
                             <button type="button" class="chip link-chip chip-btn"
-                                (click)="openExternal('https://www.typescriptlang.org/', $event)">TypeScript</button>
+                                (click)="openExternal('https://www.typescriptlang.org/', $event)">
+                                TypeScript
+                            </button>
 
                             <button type="button" class="chip link-chip chip-btn"
-                                (click)="openExternal('https://sass-lang.com/', $event)">SCSS</button>
+                                (click)="openExternal('https://sass-lang.com/', $event)">
+                                SCSS
+                            </button>
 
                             <button type="button" class="chip link-chip chip-btn"
-                                (click)="openExternal('https://nodejs.org/', $event)">Node.js</button>
+                                (click)="openExternal('https://nodejs.org/', $event)">
+                                Node.js
+                            </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- EXPERIENCE -->
+                <!-- EXPERIENCE CARD -->
                 <a class="accent-card link-card" routerLink="/experience" aria-label="Go to Experience">
                     <div class="accent-content">
                         <h3>Experience</h3>
@@ -85,7 +98,6 @@
                         <span class="link-arrow" aria-hidden="true">→</span>
                     </div>
                 </a>
-
             </div>
         </div>
     </section>
