@@ -1,11 +1,18 @@
 :host {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  /* enables sticky footer layout */
+  display: block;
+  min-height: 100dvh;
+  background: var(--bg);
+  color: var(--fg);
 }
 
-/* ───────────────── Header (single sticky version) ───────────────── */
+.app-shell {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== HEADER / NAV ===== */
+
 .topbar {
   position: sticky;
   top: 0;
@@ -29,27 +36,16 @@
   font-weight: 800;
   text-decoration: none;
   color: var(--fg);
+  letter-spacing: .04em;
+  font-size: 1rem;
 }
 
-/* Theme toggle (text + icon) */
-.theme-toggle {
-  display: inline-flex;
+.links {
+  display: flex;
   align-items: center;
-  gap: .5rem;
-  padding: .45rem .7rem;
-  border-radius: .75rem;
-  border: 1px solid color-mix(in oklab, var(--fg) 12%, transparent);
-  background: color-mix(in oklab, var(--card) 85%, transparent);
-  color: var(--fg);
-  cursor: pointer;
-  transition: background .2s ease;
+  gap: .75rem;
 }
 
-.theme-toggle:hover {
-  background: color-mix(in oklab, var(--card) 95%, transparent);
-}
-
-/* ───────────────── Nav links + underline animation ───────────────── */
 .links a {
   position: relative;
   isolation: isolate;
@@ -57,8 +53,10 @@
   color: var(--fg);
   padding: .25rem .5rem;
   border-radius: .5rem;
+  font-size: .95rem;
 }
 
+/* Active + hover underline */
 .links a::after {
   content: "";
   position: absolute;
@@ -67,60 +65,133 @@
   background: var(--accent);
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform var(--duration) var(--ease);
+  transition: transform .18s ease;
   border-radius: 2px;
 }
 
-/* Hover shows underline; active route keeps it visible */
 .links a:hover::after,
 .links a.active::after {
   transform: scaleX(1);
 }
 
-/* Slightly brighter underline for the active page */
-.links a.active::after {
-  background: color-mix(in oklab, var(--accent) 85%, white);
+/* Theme toggle in header */
+.theme-toggle {
+  border: 1px solid var(--border);
+  background: color-mix(in oklab, var(--card) 85%, transparent);
+  color: var(--fg);
+  border-radius: .5rem;
+  padding: .35rem .6rem;
+  cursor: pointer;
+  font-size: .85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
 }
 
-/* ───────────────── Main content wrapper (flex child that grows) ───────────────── */
-.content {
+/* ===== MAIN ===== */
+
+.app-main {
   flex: 1 0 auto;
-  display: block;
 }
 
-/* ───────────────── Footer ───────────────── */
-.site-footer {
-  margin-top: 2rem;
-  padding: 1rem 1.25rem;
-  border-top: 1px solid color-mix(in oklab, var(--fg) 8%, transparent);
-  background: color-mix(in oklab, var(--card) 90%, transparent);
-  flex-shrink: 0;
-}
+/* ===== FOOTER ===== */
 
-.foot-inner {
+.app-footer {
+  flex: 0 0 auto;
+  padding: 1rem 1.25rem 1.5rem;
   max-width: 1100px;
   margin: 0 auto;
-  display: flex;
-  gap: .75rem;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  font-size: .85rem;
   color: var(--muted);
-  font-size: .95rem;
+  display: flex;
+  justify-content: space-between;
+  gap: .75rem;
+  flex-wrap: wrap;
+  border-top: 1px solid color-mix(in oklab, var(--fg) 8%, transparent);
 }
 
-.site-footer a {
+.footer-info,
+.footer-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .35rem .75rem;
+}
+
+.footer-name {
+  font-weight: 600;
   color: var(--fg);
+}
+
+.footer-links a,
+.footer-links .back-top {
+  color: var(--accent);
   text-decoration: none;
-  padding: .15rem .25rem;
-  border-radius: .35rem;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  padding: 0;
+  font: inherit;
 }
 
-.site-footer a:hover {
-  background: color-mix(in oklab, var(--card) 85%, transparent);
+.footer-links a:hover,
+.footer-links .back-top:hover {
+  text-decoration: underline;
 }
 
-.dot {
-  opacity: .6;
-  margin: 0 .4rem;
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 768px) {
+  .topbar {
+    padding: .55rem .85rem;
+  }
+
+  .nav {
+    gap: .75rem;
+  }
+
+  .links {
+    gap: .6rem;
+  }
+
+  .links a {
+    padding: .3rem .55rem;
+    font-size: .9rem;
+  }
+
+  .brand {
+    font-size: .95rem;
+  }
+
+  .app-footer {
+    padding-inline: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .topbar {
+    padding: .5rem .75rem;
+    column-gap: .5rem;
+  }
+
+  .nav {
+    gap: .5rem;
+  }
+
+  .links a {
+    padding: .3rem .45rem;
+    font-size: .85rem;
+  }
+
+  .theme-toggle {
+    padding: .3rem .5rem;
+    font-size: .8rem;
+  }
+
+  .app-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: .8rem;
+    padding: .75rem .75rem 1.25rem;
+  }
 }

@@ -138,14 +138,54 @@
     border: 1px solid color-mix(in oklab, var(--accent) 40%, transparent);
 }
 
-/* Responsive */
-@media (max-width: 720px) {
+/* Tablet breakpoint */
+@media (max-width: 768px) {
+    .section {
+        padding: 1.75rem 1.25rem 2.5rem;
+    }
+
     .section__header {
         align-items: flex-start;
     }
+
+    .grid {
+        gap: .85rem;
+    }
 }
 
-/* Fade-in animation to match Home/Skills */
+/* Phone breakpoint */
+@media (max-width: 480px) {
+    .section {
+        padding: 1.5rem 1rem 2.25rem;
+    }
+
+    .filters {
+        gap: .4rem;
+    }
+
+    .chip {
+        padding: .35rem .7rem;
+        font-size: .85rem;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: .9rem .75rem .8rem;
+    }
+
+    .card__title {
+        font-size: 1.05rem;
+    }
+
+    .card__sub {
+        font-size: .85rem;
+    }
+}
+
+/* Fade-in animation */
 .fade-in {
     animation: heroFade .45s ease-out both;
 }

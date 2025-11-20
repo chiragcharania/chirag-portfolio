@@ -29,6 +29,7 @@
     border-color: color-mix(in oklab, var(--accent) 30%, transparent);
 }
 
+/* LEFT side */
 .hero-left {
     display: flex;
     flex-direction: column;
@@ -115,7 +116,6 @@
     margin-bottom: .75rem;
 }
 
-/* NEW meta line */
 .hero-meta {
     font-size: .9rem;
     color: color-mix(in oklab, var(--fg) 80%, #9aa3b2);
@@ -137,6 +137,12 @@
     margin: 0 0 1.5rem;
     list-style: none;
     padding: 0;
+}
+
+.hero-stats li {
+    display: inline-flex;
+    align-items: center;
+    gap: .25rem;
 }
 
 .hero-cta {
@@ -169,6 +175,7 @@
     background: color-mix(in oklab, var(--accent) 30%, transparent);
 }
 
+/* RIGHT side */
 .hero-right {
     display: flex;
     flex-direction: column;
@@ -181,6 +188,7 @@
     gap: 1.25rem;
 }
 
+/* Accent cards (skills / experience) */
 .accent-card {
     background: linear-gradient(180deg,
             color-mix(in oklab, var(--card) 96%, transparent),
@@ -211,6 +219,7 @@
     padding: .85rem 1rem;
 }
 
+/* Skills card */
 .accent-card.skills-card {
     padding: .75rem 1rem;
     border-radius: 16px;
@@ -244,7 +253,7 @@
     will-change: transform;
 }
 
-/* Make chip buttons look like links */
+/* Chip buttons (home skills) */
 .chip-btn {
     appearance: none;
     border: none;
@@ -252,7 +261,7 @@
     padding: 0;
 }
 
-/* Dark/light hover inversion JUST for home skills chips */
+/* Theme-aware hover for home skills chips */
 :root[data-theme="dark"] .skills-card .chip-btn:hover {
     background: #f2f2f2;
     color: #111;
@@ -269,7 +278,7 @@
     box-shadow: 0 6px 14px color-mix(in oklab, var(--fg) 18%, transparent);
 }
 
-/* Experience card bits */
+/* Experience card preview */
 .xp-list {
     list-style: none;
     margin: 0;
@@ -309,7 +318,7 @@
     transform: translateX(3px);
 }
 
-/* Scroll hint with gentle bounce */
+/* Scroll hint */
 .scroll-hint {
     margin-top: 2rem;
     border: none;
@@ -325,25 +334,84 @@
     color: var(--accent);
 }
 
-/* Responsive */
-@media (max-width: 860px) {
+/* Tablet breakpoint */
+@media (max-width: 768px) {
+    .home {
+        padding: 3.25rem 1.25rem 1.75rem;
+    }
+
     .hero-card {
         grid-template-columns: 1fr;
         text-align: center;
-        padding: 1.5rem;
+        padding: 1.5rem 1.25rem 1.75rem;
+        gap: 1.5rem;
     }
 
-    .hero-left,
-    .hero-cta,
+    .hero-left {
+        padding-left: 0;
+        align-items: center;
+        text-align: center;
+    }
+
     .hero-tags,
-    .hero-stats {
-        align-items: center !important;
-        justify-content: center !important;
-        text-align: center !important;
+    .hero-stats,
+    .hero-cta {
+        justify-content: center;
+    }
+
+    .hero-summary,
+    .hero-meta {
+        max-width: 34rem;
+    }
+
+    .cards {
+        gap: 1rem;
     }
 }
 
-/* Fade-in same as other pages */
+/* Phone breakpoint */
+@media (max-width: 480px) {
+    .home {
+        padding: 3rem 1rem 1.5rem;
+    }
+
+    .hero-card {
+        padding: 1.25rem 1rem 1.5rem;
+    }
+
+    .hero__avatar {
+        width: 140px;
+        height: 140px;
+    }
+
+    .hero-title {
+        font-size: clamp(1.7rem, 8vw, 2.3rem);
+    }
+
+    .hero-summary {
+        font-size: .95rem;
+    }
+
+    .hero-stats {
+        font-size: .85rem;
+        text-align: center;
+    }
+
+    .hero-stats li {
+        white-space: normal;
+    }
+
+    .btn {
+        padding: .5rem 1.1rem;
+        font-size: .9rem;
+    }
+
+    .accent-card {
+        padding: .9rem .9rem;
+    }
+}
+
+/* Fade-in & scroll bounce */
 .fade-in {
     animation: heroFade .45s ease-out both;
 }

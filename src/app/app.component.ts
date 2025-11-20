@@ -41,8 +41,11 @@ export class AppComponent {
   lastUpdated = this.now; // replace with fixed date if desired
 
   // --- Helpers ---------------------------------------------------------------
-  scrollToTop(event: Event) {
-    event.preventDefault();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   }
+
 }
